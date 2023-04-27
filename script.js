@@ -1,5 +1,36 @@
+import { getAuth, signInWithPopup, GoogleAuthProvider } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-auth.js";
+import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-analytics.js";
+import { app } from './firebase.js';
+
+
+
+const analytics = getAnalytics(app);
+
+export { app, analytics };
+
 const form = document.getElementById('login-form');
-const webauthButton = document.getElementById('webauth-button');
+const user = JSON.parse(localStorage.getItem('user'));
+if (user) {
+  console.log('Username:', user.username);
+}
+
+const usernameForm = document.getElementById('username-form');
+if (usernameForm) {
+  usernameForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const newUsername = usernameForm['new-username'].value;
+
+    // Save the username here, for example, in local storage or send it to your backend
+    const user = JSON.parse(localStorage.getItem('user'));
+    user.username = newUsername;
+    localStorage.setItem('user', JSON.stringify(user));
+
+    // Redirect the user to the home page
+    window.location.href = 'index.html';
+  });
+}
+
+
 
 form.addEventListener('submit', (event) => {
   event.preventDefault();
@@ -10,7 +41,7 @@ form.addEventListener('submit', (event) => {
 });
 
 function doLogin(username, password) {
-  fetch('http://localhost:8080/animesite/login', {
+  fetch('', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
@@ -24,6 +55,30 @@ function doLogin(username, password) {
     alert('Ocorreu um erro durante o login.');
   });
 }
+const googleLoginButton = document.getElementById('google-login-button');
+googleLoginButton.addEventListener('click', signInWithGoogle);
+
+
+async function signInWithGoogle() {
+  const provider = new GoogleAuthProvider();
+  const auth = getAuth();
+
+  try {
+    const result = await signInWithPopup(auth, provider);
+    const user = result.user;
+    console.log('Usuário autenticado:', user);
+    
+    // Save user data here, for example, in local storage or send it to your backend
+    localStorage.setItem('user', JSON.stringify(user));
+    
+    // Redirect the user to the username input page
+    window.location.href = 'username.html';
+  } catch (error) {
+    console.error('Erro durante a autenticação:', error);
+  }
+}
+
+
 
 function handleLoginResult(data) {
   if (data.success) {
@@ -32,7 +87,3 @@ function handleLoginResult(data) {
     alert('Usuário ou senha incorretos.');
   }
 }
-
-webauthButton.addEventListener('click', () => {
-  window.location.href = 'http://localhost:8080/animesite/login.html'; // substitua a URL pelo endpoint da sua aplicação WebAuth
-});

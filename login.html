@@ -3,6 +3,17 @@
 <head>
 	<title>Tela de Login</title>
 	<link rel="stylesheet" href="estilos.css">
+<!-- Remova este elemento <script> -->
+<!--
+<script type="module">
+  ...
+</script>
+-->
+
+<!-- Adicione estas duas linhas no final do elemento <head> -->
+	<script type="module" src="firebase.js"></script>
+	<script type="module" src="script.js"></script>
+	
 </head>
 <body>
 	<div class="login-container">
@@ -16,9 +27,12 @@
 
 			<input type="submit" value="Entrar">
 		</form>
-		<button id="webauth-button">Autenticar com WebAuth</button>
+
+		<button id="google-login-button">Entrar com o Google</button>
+
 	</div>
 
 	<script src="script.js"></script>
+	
 </body>
 </html>
