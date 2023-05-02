@@ -1,0 +1,20 @@
+version: "3.3"
+services:
+  animesite:
+    working_dir: /var/www/html
+    volumes:
+      - .:/var/www/html:rw
+    ports:
+      - 8002:80
+    depends_on:
+          - db
+  db:
+    container_name: mydb
+    image: mysql:8.0
+    ports:
+      - "32001:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: 787114
+      MYSQL_DATABASE: anime_date
+      MYSQL_USER: mysql
+      MYSQL_PASSWORD: 123456
