@@ -1,0 +1,56 @@
+inciar banco: mysql -h 127.0.0.1 -P 32001 -u mysql -p
+
+
+
+CREATE TABLE usuarios (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  firebase_uid VARCHAR(255) NOT NULL,
+  username VARCHAR(255) NOT NULL,
+  email VARCHAR(255) NOT NULL,
+);
+
+# your_app.py
+from flask import Flask, request, jsonify
+import pymysql
+
+from flask_cors import CORS
+
+app = Flask(__name__, static_folder='/var/www/html/animesite', static_url_path='')
+CORS(app)  
+#app = Flask(__name__)
+
+# Configuração do banco de dados
+db_config = {
+    'host': 'localhost',
+    'user': 'mysql',
+    'password': '123456',
+    'db': 'anime_date'
+}
+
+
+@app.route('/var/www/html/animesite/login', methods=['POST'])
+def save_user():
+    user_data = request.json
+    firebase_uid = user_data['uid']
+    username = user_data['username']
+    email = user_data['email']
+    # Obtenha outros campos conforme necessário
+
+    connection = pymysql.connect(**db_config)
+    cursor = connection.cursor()
+
+    try:
+        query = '''INSERT INTO usuarios (firebase_uid, username, email)
+                   VALUES (%s, %s, %s)'''
+        cursor.execute(query, (firebase_uid, username, email))
+        connection.commit()
+        return jsonify({'success': True})
+    except Exception as e:
+        print(e)
+        return jsonify({'success': False})
+    finally:
+        cursor.close()
+        connection.close()
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=8002, debug=True)

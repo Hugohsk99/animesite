@@ -1,13 +1,17 @@
 version: "3.3"
+
 services:
   animesite:
-    working_dir: /var/www/html
+    build: .
+    working_dir: /app
     volumes:
-      - .:/var/www/html:rw
+      - .:/app:rw
+      - ./static:/app/static:ro 
+
     ports:
-      - 8002:80
+      - 8002:8000
     depends_on:
-          - db
+      - db
   db:
     container_name: mydb
     image: mysql:8.0

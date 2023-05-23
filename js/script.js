@@ -26,7 +26,7 @@ if (usernameForm) {
     localStorage.setItem('user', JSON.stringify(user));
 
     // Redirect the user to the home page
-    window.location.href = 'index.html';
+    window.location.href = 'templades/index.html';
   });
 }
 
