@@ -14,16 +14,15 @@ db_config = {
 def index():
     return render_template('index.html')
 
+@app.route('/login')
 def login():
     return render_template('login.html')
 
+@app.route('/cadastro')
 def cadastro():
     return render_template('cadastro.html')
 
+@app.route('/username')
 def username():
     return render_template('username.html')
-
-@app.route('/static/images/<path:path>')
-def serve_static(path):
-    return send_from_directory('static/images', path)
 
