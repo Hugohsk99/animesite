@@ -26,11 +26,8 @@ if (usernameForm) {
     localStorage.setItem('user', JSON.stringify(user));
 
     // Redirect the user to the home page
-    window.location.href = 'templades/index.html';
-  });
+    window.location.href = '/';  });
 }
-
-
 
 form.addEventListener('submit', (event) => {
   event.preventDefault();
@@ -72,7 +69,7 @@ async function signInWithGoogle() {
     localStorage.setItem('user', JSON.stringify(user));
     
     // Redirect the user to the username input page
-    window.location.href = 'username.html';
+    window.location.href = '/username';
   } catch (error) {
     console.error('Erro durante a autenticação:', error);
   }
