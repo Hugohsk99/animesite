@@ -1,5 +1,10 @@
-inciar banco: mysql -h 127.0.0.1 -P 32001 -u mysql -p
+inciar banco: mysql -h 127.0.0.1 -P 32001 -u mysql -p anime_date
 
+docker-compose exec db mysql -h db -P 3306 -u mysql -p
+
+
+pip freeze > requirements.txt ---- insere as dependencias no arquivo
+USE anime_date;
 
 
 CREATE TABLE usuarios (

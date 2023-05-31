@@ -2,8 +2,6 @@ import { getAuth, signInWithPopup, GoogleAuthProvider } from "https://www.gstati
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-analytics.js";
 import { app } from './firebase.js';
 
-
-
 const analytics = getAnalytics(app);
 
 export { app, analytics };
@@ -20,12 +18,10 @@ if (usernameForm) {
     event.preventDefault();
     const newUsername = usernameForm['new-username'].value;
 
-    // Save the username here, for example, in local storage or send it to your backend
     const user = JSON.parse(localStorage.getItem('user'));
     user.username = newUsername;
     localStorage.setItem('user', JSON.stringify(user));
 
-    // Redirect the user to the home page
     window.location.href = '/';  });
 }
 
@@ -74,8 +70,6 @@ async function signInWithGoogle() {
     console.error('Erro durante a autenticação:', error);
   }
 }
-
-
 
 function handleLoginResult(data) {
   if (data.success) {
