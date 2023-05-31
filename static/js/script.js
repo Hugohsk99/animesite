@@ -84,3 +84,26 @@ function handleLoginResult(data) {
     alert('Usuário ou senha incorretos.');
   }
 }
+
+$(document).ready(function() {
+  var larguraImagem = $(".carrossel-imagem img").width();
+  var totalImagens = $(".carrossel-imagem img").length;
+  var larguraCarrossel = larguraImagem * totalImagens;
+  $(".carrossel-imagem").css("width", larguraCarrossel);
+
+  var slideAtual = 0;
+
+  $(".proximo").click(function() {
+      if (slideAtual < totalImagens - 1) {
+          slideAtual++;
+          $(".carrossel-imagem").animate({ "margin-left": "-=" + larguraImagem + "px" }, "slow");
+      }
+  });
+
+  $(".anterior").click(function() {
+      if (slideAtual > 0) {
+          slideAtual--;
+          $(".carrossel-imagem").animate({ "margin-left": "+=" + larguraImagem + "px" }, "slow");
+      }
+  });
+});

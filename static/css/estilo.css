@@ -11,3 +11,118 @@
 footer p a {
 	margin: 5px 15px;
 }
+
+.carrossel {
+    width: 300px;
+    height: 200px;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid #ccc;
+}
+
+.carrossel-imagem {
+    width: 300%;
+    height: 200px;
+    position: absolute;
+}
+
+.carrossel-imagem img {
+    float: left;
+    width: 33.33%;
+}
+
+.controles {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.controles button {
+    margin: 0 5px;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+nav {
+    background-color: #f1f1f1;
+    padding: 10px;
+    text-align: center;
+}
+
+nav ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 10px;
+}
+
+nav ul li a {
+    color: #333;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 5px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+nav ul li a:hover {
+    background-color: #ddd;
+}
+
+main {
+    padding: 20px;
+}
+
+section {
+    margin-bottom: 20px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+section h2 {
+    margin-top: 0;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+section p {
+    line-height: 1.5;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    font-size: 14px;
+}
+
+.footer-link {
+    color: #fff;
+    text-decoration: underline;
+}
+
+.footer-link:hover {
+    color: #ddd;
+}
