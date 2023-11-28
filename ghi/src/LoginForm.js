@@ -25,7 +25,7 @@ const LoginForm = () => {
       <div className="row login-style">
         <div className="offset-3 col-6">
           <div className="shadow p-4 mt-4 login-style">
-            <h1>Welcome back!</h1>
+            <h1>Bem-Vindo de Volta!</h1>
             <form onSubmit={handleSubmit} id="login-form" method="POST">
               <div className="form-floating mb-3">
                 <input
@@ -38,7 +38,7 @@ const LoginForm = () => {
                   required
                   className="form-control"
                 />
-                <label htmlFor="username">Username</label>
+                <label htmlFor="username">Usuário</label>
               </div>
               <div className="form-floating mb-3">
                 <input
@@ -50,7 +50,7 @@ const LoginForm = () => {
                   required
                   className="form-control"
                 />
-                <label htmlFor="password">Password</label>
+                <label htmlFor="password">Senha</label>
               </div>
 
               <button type="submit" className="btn btn-funky-moon">
@@ -59,7 +59,7 @@ const LoginForm = () => {
             </form>
             {isLoggedIn === false && (
               <div className="alert" id="invalid-credentials">
-                <p>Wrong credentials. Please try again.</p>
+                <p>Senha ou Login Errados.Tente novamente!</p>
               </div>
             )}
           </div>

@@ -39,8 +39,8 @@ function HomePage() {
           <div className="row featurette">
             <div class="col-md-7 order-md-2">
               <h2 class="featurette-heading fw-bold lh-1">
-                Anime Title in English{" "}
-                <h2 class="text-muted">Anime Title in Japanese</h2>
+                Título Do Anime in English{" "}
+                <h2 class="text-muted">Título Do Anime in Japanese</h2>
               </h2>
               <p class="lead" align="left">
                 Another featurette? Of course. More placeholder content here to

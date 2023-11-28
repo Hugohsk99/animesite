@@ -73,10 +73,10 @@ export default function Watchlist() {
       <table className="table table-dark table-striped">
         <thead>
           <tr>
-            <th>Anime Title</th>
-            <th>Air Date</th>
-            <th>Picture</th>
-            <th>Edit</th>
+            <th>Título Do Anime</th>
+            <th>Lançamento</th>
+            <th>Imagem</th>
+            <th>Editar</th>
           </tr>
         </thead>
         <tbody>
@@ -98,7 +98,7 @@ export default function Watchlist() {
                     className="btn btn-danger"
                     onClick={() => removeWatchlist(watchlist.id)}
                   >
-                    Delete
+                    Exluir
                   </button>
                 </td>
               </tr>

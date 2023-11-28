@@ -74,9 +74,9 @@ export default function Favorites() {
       <table className="table table-dark table-striped">
         <thead>
           <tr>
-            <th>Anime Title</th>
+            <th>Título Do Anime</th>
             <th>Date</th>
-            <th>Picture</th>
+            <th>Imagem</th>
           </tr>
         </thead>
         <tbody>

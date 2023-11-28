@@ -67,7 +67,7 @@ export default function WatchlistForm() {
           <h1>Add Anime into your watch list</h1>
           <form onSubmit={handleSubmit} id="create-bin-form">
             <div className="form-floating mb-3">
-              <label htmlFor="title">Anime Title</label>
+              <label htmlFor="title">Título Do Anime</label>
               <input
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
@@ -79,7 +79,7 @@ export default function WatchlistForm() {
               />
             </div>
             <div className="form-floating mb-3">
-              <label htmlFor="date">Air Date</label>
+              <label htmlFor="date">Lançamento</label>
               <input
                 value={date}
                 onChange={(e) => setDate(e.target.value)}

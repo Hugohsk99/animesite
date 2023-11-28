@@ -47,7 +47,7 @@ function Nav() {
               </li>
               <li>
                 <NavLink className="nav-link" aria-current="page" to="Search/">
-                  Search
+                  Busca
                 </NavLink>
               </li>
               {token && <div className="dropdown" aria-current="page">
@@ -61,7 +61,7 @@ function Nav() {
                   aria-haspopup="true"
                   aria-expanded="false"
                 >
-                  Favorites
+                  Favoritos
                 </button>
                 <div
                   className="dropdown-menu"
@@ -73,7 +73,7 @@ function Nav() {
                       to="/favorites/"
                       id="dropdown"
                     >
-                      View Favorites
+                      Mostrar Favoritos
                     </Link>
                   </li>
                   <li className="nav-item">
@@ -82,7 +82,7 @@ function Nav() {
                       to="favorites/new"
                       id="dropdown"
                     >
-                      Add a Favorite
+                      Adicionar Favorito
                     </NavLink>
                   </li>
                 </div>
@@ -97,7 +97,7 @@ function Nav() {
                   aria-haspopup="true"
                   aria-expanded="false"
                 >
-                  Watchlist
+                  Lista de Assistidos
                 </button>
                 <div
                   className="dropdown-menu"
@@ -109,7 +109,7 @@ function Nav() {
                       to="/watchlist/"
                       id="dropdown"
                     >
-                      View Your Watchlist
+                     Mostrar Histórico
                     </Link>
                   </li>
                   <li className="nav-item">
@@ -118,7 +118,7 @@ function Nav() {
                       to="/watchlist/new"
                       id="dropdown"
                     >
-                      Add to Your Watchlist
+                      Adicionar a Lista de Assistidos
                     </NavLink>
                   </li>
                 </div>
@@ -137,7 +137,7 @@ function Nav() {
                   {isLoggedIn ? (<></>) :
                     <li className="nav-item">
                       <NavLink className="nav-link text-black" aria-current="page" to="/signup">
-                        Sign Up
+                       Cadastro
                       </NavLink>
                     </li>
                   }
@@ -147,9 +147,9 @@ function Nav() {
                   {isLoggedIn ? (
                     <>
                       <NavLink className="btn" to="/AccountDetailView">
-                        View Account
+                      Ver Conta
                       </NavLink>
-                      <NavLink className="btn" to="/AccountEditForm">Edit Profile</NavLink>
+                      <NavLink className="btn" to="/AccountEditForm">Editar Perfil</NavLink>
                     </>
                   ) : <></>}
                 </div>

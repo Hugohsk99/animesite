@@ -71,7 +71,7 @@ export default function FavoriteForm() {
                             <input value={userID} onChange={(e)=>setUserID(e.target.value)} placeholder="user_id" required type="text" name="user_id" id="user_id" className="form-control form-input" />
                         </div> */}
             <div className="form-floating mb-3">
-              <label htmlFor="date">Anime Title</label>
+              <label htmlFor="date">Título Do Anime</label>
               <input
                 value={animeTitle}
                 onChange={(e) => setAnimeTitle(e.target.value)}
@@ -83,7 +83,7 @@ export default function FavoriteForm() {
               />
             </div>
             <div className="form-floating mb-3">
-              <label htmlFor="date">Air Date</label>
+              <label htmlFor="date">Lançamento</label>
               <input
                 value={date}
                 onChange={(e) => setDate(e.target.value)}
