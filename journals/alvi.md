@@ -40,7 +40,7 @@ Today, I worked on:
 - Imported real data into top 100
 - Worked on fixing the map function error that occurs because it tries to map undefined values, think I got it
 
-So I have implemented that map function I mentioned yesterday. Now we have REAL data inside of the page that is dynamic and based off a single card and continually indexes and prints stuff accordingly. This is huge! But the only issue is that sometimes it doesn't load for the fact that the async useEffect function actually has issues with loading in the data BEFORE the JSX is rendered. In order to combat this I have decided to use some conditional rendering. This is working!
+So I have implemented that map function I mentioned yesterday. Now we have REAL data inside of the page that is dynamic and based off a single card and continually indexes and prints stuff accordingly. This is huge! But the only issue is that sometimes it doesn't load for the fact that the async useEffect function actually has issues with Carregando in the data BEFORE the JSX is rendered. In order to combat this I have decided to use some conditional rendering. This is working!
 
 ## January 19, 2023
 
@@ -49,7 +49,7 @@ Today, I worked on:
 - Finished up the skeleton for the top 100 page
 - Started figuring out how to import third party api data into the page
 
-The Top 100 page is currently loading in a single media card, but we need all of the data to show. I currently have the skeleton of the page, and some dummy data into it for the time being. I have written an async useEffect and have been able to import the data into the page and console log it. This is a huge first step, but now I have to actually find a way to put that data into the JSX. Someone mentioned a map function.
+The Top 100 page is currently Carregando in a single media card, but we need all of the data to show. I currently have the skeleton of the page, and some dummy data into it for the time being. I have written an async useEffect and have been able to import the data into the page and console log it. This is a huge first step, but now I have to actually find a way to put that data into the JSX. Someone mentioned a map function.
 
 ## January 18, 2023
 

@@ -5,7 +5,7 @@ import "./index.css";
 
 function Details () {
   const [details, setDetails] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isCarregando, setIsCarregando] = useState(true);
   const [error, setError] = useState(null);
   const {mal_id} = useParams();
   const blueStar = require('./blueStar.png')
@@ -14,7 +14,7 @@ function Details () {
   useEffect(() => {
     const fetchDetails = async () => {
       try {
-        setIsLoading(true);
+        setIsCarregando(true);
         const response = await fetch(
           `https://api.jikan.moe/v4/anime/${mal_id}/full`
         );
@@ -24,19 +24,19 @@ function Details () {
         setError(error);
         console.log("Error fetching details: ", error);
       } finally {
-        setIsLoading(false);
+        setIsCarregando(false);
       }
     };
 
     fetchDetails();
   }, [mal_id]);
 
-  if (isLoading) {
+  if (isCarregando) {
     return (
       <div>
         <div className="spinner-border" role="status"></div>
         <div>
-          <h1>Loading . . . </h1>
+          <h1>Carregando . . . </h1>
         </div>
       </div>
     );
@@ -52,13 +52,13 @@ function Details () {
     if (detailStatus === "Finished Airing") {
       return (
         <div className="badge bg-success rounded-pill">
-          <h6>Finished Airing</h6>
+          <h6>Finalizado</h6>
         </div>
       );
     } else {
       return (
         <div className="badge bg-danger rounded-pill">
-          <h6>Currently Airing</h6>
+          <h6>Lançando</h6>
         </div>
       );
     }
@@ -98,7 +98,7 @@ function Details () {
                     href={streamingServices}
                     role="button"
                   >
-                    <h6>Stream on Crunchyroll!</h6>
+                    <h6>Veja Na Crunchyroll!</h6>
                   </a>
                 </div>
               </div>

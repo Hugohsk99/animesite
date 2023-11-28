@@ -4,12 +4,12 @@
 
 // export function Search(query) {
 //   const [searchResults, setSearchResults] = useState([]);
-//   const [isLoading, setIsLoading] = useState(false);
+//   const [isCarregando, setIsCarregando] = useState(false);
 //   const [isData, setIsData] = useState(true);
 
 //   useEffect(() => {
 //     const fetchResult = async () => {
-//       setIsLoading(true);
+//       setIsCarregando(true);
 //       try {
 //         console.log("TESTING FETCH RESULT");
 
@@ -24,7 +24,7 @@
 //         data.title = ["no results found"]
 //         setSearchResults(data);
 //       }
-//       setIsLoading(false);
+//       setIsCarregando(false);
 //       setIsData(true);
 //     };
 //     if (query) {
@@ -59,8 +59,8 @@
 //         />
 //         <button type="submit">Search</button>
 //       </form>
-//       {isLoading ? (
-//         <div>Loading...</div>
+//       {isCarregando ? (
+//         <div>Carregando...</div>
 //       ) : (
 //         <ul>
 //           {searchResults.map((data, index) => (

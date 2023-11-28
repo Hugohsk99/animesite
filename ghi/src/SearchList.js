@@ -6,7 +6,7 @@ function SearchList() {
   // const [scrollHeight, setScrollHeight] = useState(0);
   const [query, setQuery] = useState('');
   const [searchResults, setSearchResults] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isCarregando, setIsCarregando] = useState(false);
   // const [overFlowData, setOverFlowData] = useState(true);
   // const [page, setPage] = useState(1);
   const blueStar = require("./blueStar.png");
@@ -21,7 +21,7 @@ function SearchList() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    setIsLoading(true);
+    setIsCarregando(true);
     try {
       const response = await fetch(`https://api.jikan.moe/v4/anime?q=${query}&sfw`);
       const data = await response.json();
@@ -30,7 +30,7 @@ function SearchList() {
     } catch (error) {
       console.log("Error", error);
     }
-    setIsLoading(false);
+    setIsCarregando(false);
   };
 
 
@@ -50,7 +50,7 @@ function SearchList() {
           <button type="submit">Busca</button>
         </form>
       </div>
-      {isLoading ? (
+      {isCarregando ? (
         <p>Carregando . . .</p>
       ) : (
         <ul className="results table">
