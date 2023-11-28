@@ -44,4 +44,4 @@ The watchlist service contains data about users' watchlist, series that can be s
 | username         | string | yes    | no       |
 | password         | string | no     | no       |
 
-The accounts service allows users to sign-up, login and allow users to access their favorites and watchlist data. 
+The contas service allows users to sign-up, login and allow users to access their favoritos and watchlist data. 

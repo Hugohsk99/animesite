@@ -37,8 +37,8 @@ export default function App() {
               <Route path="/:mal_id/" element={<Details />} />
               <Route path="/Search/" element={<SearchList />} />
               <Route path="login/" element={<LoginForm />} />
-              <Route path="favorites" element={<Favorites />} />
-              <Route path="favorites/new" element={<FavoriteForm />} />
+              <Route path="favoritos" element={<Favorites />} />
+              <Route path="favoritos/new" element={<FavoriteForm />} />
               <Route path="watchlist" element={<Watchlist />} />
               <Route path="watchlist/new" element={<WatchlistForm />} />
               <Route path="/AccountEditForm" element={<AccountEditForm />} />

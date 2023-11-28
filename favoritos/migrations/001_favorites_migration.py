@@ -1,7 +1,7 @@
 steps = [
     [
         """
-        CREATE TABLE favorites (
+        CREATE TABLE favoritos (
             id SERIAL PRIMARY KEY NOT NULL,
             user_id INTEGER NOT NULL,
             anime_title VARCHAR(250) NOT NULL,
@@ -10,7 +10,7 @@ steps = [
         );
         """,
         """
-        DROP TABLE favorites;
+        DROP TABLE favoritos;
         """,
     ]
 ]

@@ -1,11 +1,11 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 import os
-from routers import favorites
+from routers import favoritos
 
 
 app = FastAPI()
-app.include_router(favorites.router)
+app.include_router(favoritos.router)
 
 origins = [
     os.environ.get("CORS_HOST", "http://localhost:3000"),

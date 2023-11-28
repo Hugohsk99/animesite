@@ -27,7 +27,7 @@ class AccountOut(BaseModel):
 
 
 class FavoriteList(BaseModel):
-    favorites: list[FavoriteOut]
+    favoritos: list[FavoriteOut]
 
 
 class FavoriteRepository:
@@ -38,14 +38,14 @@ class FavoriteRepository:
                 db.execute(
                     """
                     SELECT *
-                    FROM favorites
+                    FROM favoritos
                     """
                 )
             else:
                 db.execute(
                     """
                     SELECT *
-                    FROM favorites
+                    FROM favoritos
                     WHERE user_id = %s
                     """,
                     [user_id],
@@ -64,7 +64,7 @@ class FavoriteRepository:
             with connection.cursor() as db:
                 result = db.execute(
                     """
-                        INSERT INTO favorites
+                        INSERT INTO favoritos
                             (user_id, anime_title, date, img_url)
                         VALUES
                             (%s, %s, %s, %s)
@@ -88,7 +88,7 @@ class FavoriteRepository:
         with connection.cursor() as db:
             db.execute(
                 """
-                DELETE FROM favorites
+                DELETE FROM favoritos
                 WHERE id = %s
                 """,
                 [favorite_id],

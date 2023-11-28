@@ -8,25 +8,25 @@ lint-test-job:
   stage: test
   script:
     - pip install flake8
-    - flake8 accounts favorites watchlists
+    - flake8 contas favoritos watchlists
 
-accounts-unit-test-job:
+contas-unit-test-job:
   image: python:3-bullseye
   stage: test
   script:
-    - cd accounts
+    - cd contas
     - pip install -r requirements.txt
     - export DATABASE_URL="postgres://postgres:pass@srv-captain--anime-postgres/postgres"
     - export SIGNING_KEY="LjdTjfrjPYgUJHNDzM-dKQoBLIfC74fNnR_71DcJcgE"
     - python -m pytest
 
-favorites-unit-test-job:
+favoritos-unit-test-job:
   image: python:3-bullseye
   stage: test
   script:
-    - cd favorites
+    - cd favoritos
     - pip install -r requirements.txt
-    - export DATABASE_URL="postgres://postgres:pass@srv-captain--favorites-postgres/postgres"
+    - export DATABASE_URL="postgres://postgres:pass@srv-captain--favoritos-postgres/postgres"
     - export SIGNING_KEY="LjdTjfrjPYgUJHNDzM-dKQoBLIfC74fNnR_71DcJcgE"
     - python -m pytest
 
@@ -40,7 +40,7 @@ watchlists-unit-test-job:
     - export SIGNING_KEY="LjdTjfrjPYgUJHNDzM-dKQoBLIfC74fNnR_71DcJcgE"
     - python -m pytest
 
-build-accounts-backend:
+build-contas-backend:
   image: docker:19.03.1
   stage: build
   services:
@@ -54,9 +54,9 @@ build-accounts-backend:
     - docker login -u "$DOCKER_REGISTRY_USER" -p "$DOCKER_REGISTRY_PASSWORD" $DOCKER_REGISTRY_URL # Instructs GitLab to login to its registry
 
   script:
-    - cd accounts
+    - cd contas
     - echo "Building..." # MAKE SURE NO SPACE ON EITHER SIDE OF = IN THE FOLLOWING LINE
-    - export CONTAINER_FULL_IMAGE_NAME_WITH_TAG=$IMAGE_NAME_WITH_REGISTRY_PREFIX/accounts:$COMMIT_HASH
+    - export CONTAINER_FULL_IMAGE_NAME_WITH_TAG=$IMAGE_NAME_WITH_REGISTRY_PREFIX/contas:$COMMIT_HASH
     - docker build -f ./Dockerfile --pull -t accounts_img .
     - docker tag accounts_img "$CONTAINER_FULL_IMAGE_NAME_WITH_TAG"
     - docker push "$CONTAINER_FULL_IMAGE_NAME_WITH_TAG"
@@ -66,7 +66,7 @@ build-accounts-backend:
   only:
     - main
 
-build-favorites-backend:
+build-favoritos-backend:
   image: docker:19.03.1
   stage: build
   services:
@@ -80,9 +80,9 @@ build-favorites-backend:
     - docker login -u "$DOCKER_REGISTRY_USER" -p "$DOCKER_REGISTRY_PASSWORD" $DOCKER_REGISTRY_URL # Instructs GitLab to login to its registry
 
   script:
-    - cd favorites
+    - cd favoritos
     - echo "Building..." # MAKE SURE NO SPACE ON EITHER SIDE OF = IN THE FOLLOWING LINE
-    - export CONTAINER_FULL_IMAGE_NAME_WITH_TAG=$IMAGE_NAME_WITH_REGISTRY_PREFIX/favorites:$COMMIT_HASH
+    - export CONTAINER_FULL_IMAGE_NAME_WITH_TAG=$IMAGE_NAME_WITH_REGISTRY_PREFIX/favoritos:$COMMIT_HASH
     - docker build -f ./Dockerfile --pull -t favorites_img .
     - docker tag favorites_img "$CONTAINER_FULL_IMAGE_NAME_WITH_TAG"
     - docker push "$CONTAINER_FULL_IMAGE_NAME_WITH_TAG"
@@ -129,8 +129,8 @@ build-front-end-job:
     # You need to substitute in your real values for
     # GROUP_NAME, PROJECT_NAME, & WEBSERVICE_NAME below.
     PUBLIC_URL: https://catjj.gitlab.io/nipo-land
-    REACT_APP_ACCOUNTS_API_HOST: https://accounts.sept-pt-8.mod3projects.com
-    REACT_APP_FAVORITES_API_HOST: https://favorites.sept-pt-8.mod3projects.com
+    REACT_APP_ACCOUNTS_API_HOST: https://contas.sept-pt-8.mod3projects.com
+    REACT_APP_FAVORITES_API_HOST: https://favoritos.sept-pt-8.mod3projects.com
     REACT_APP_WATCHLISTS_API_HOST: https://watchlists.sept-pt-8.mod3projects.com
   script:
     - cd ghi

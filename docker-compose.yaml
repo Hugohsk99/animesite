@@ -23,35 +23,35 @@ services:
     volumes:
       - postgres-data:/var/lib/postgresql/data
     environment:
-      - POSTGRES_MULTIPLE_DATABASES=accounts,favorites,watchlists
+      - POSTGRES_MULTIPLE_DATABASES=contas,favoritos,watchlists
       - POSTGRES_USER=admin
       - POSTGRES_PASSWORD=pass
     ports:
       - 15432:5432
 
-  accounts:
+  contas:
     build:
-      context: ./accounts
+      context: ./contas
       dockerfile: ./Dockerfile.dev
     ports:
       - "8000:8000"
     volumes:
-      - ./accounts:/app
+      - ./contas:/app
     environment:
-      DATABASE_URL: postgresql://accounts:password@postgres
+      DATABASE_URL: postgresql://contas:password@postgres
       WAIT_HOSTS: postgres:5432
       SIGNING_KEY: LjdTjfrjPYgUJHNDzM-dKQoBLIfC74fNnR_71DcJcgE
 
-  favorites:
+  favoritos:
     build:
-      context: ./favorites
+      context: ./favoritos
       dockerfile: ./Dockerfile.dev
     ports:
       - "8090:8000"
     volumes:
-      - ./favorites:/app
+      - ./favoritos:/app
     environment:
-      DATABASE_URL: postgresql://favorites:password@postgres
+      DATABASE_URL: postgresql://favoritos:password@postgres
       WAIT_HOSTS: postgres:5432
       SIGNING_KEY: LjdTjfrjPYgUJHNDzM-dKQoBLIfC74fNnR_71DcJcgE
 

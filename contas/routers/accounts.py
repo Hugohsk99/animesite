@@ -7,7 +7,7 @@ from fastapi import (
     status,
 )
 
-from queries.accounts import (
+from queries.contas import (
     AccountQueries,
     DuplicateAccountError,
     Error,
@@ -51,7 +51,7 @@ async def get_token(
         }
 
 
-@router.post("/api/accounts", response_model=Union[UserToken, Error])
+@router.post("/api/contas", response_model=Union[UserToken, Error])
 async def create_account(
     info: AccountIn,
     request: Request,
@@ -75,7 +75,7 @@ async def create_account(
 
 
 @router.get(
-    "/api/accounts/{user_id}", response_model=Optional[AccountOutWithPassword]
+    "/api/contas/{user_id}", response_model=Optional[AccountOutWithPassword]
 )
 def get_account_by_id(
     user_id: int,
@@ -90,14 +90,14 @@ def get_account_by_id(
         return {"message": "invalid token"}
 
 
-@router.get("/api/accounts", response_model=Union[List[AccountOut], Error])
+@router.get("/api/contas", response_model=Union[List[AccountOut], Error])
 def get_all_accounts(
     repo: AccountQueries = Depends(),
 ):
     return repo.get_all()
 
 
-@router.put("/api/accounts/{user_id}")
+@router.put("/api/contas/{user_id}")
 def update_account(
     user_id: int,
     account: AccountIn,
@@ -113,7 +113,7 @@ def update_account(
         return {"message": "invalid token"}
 
 
-@router.delete("/api/accounts/{user_id}", response_model=bool)
+@router.delete("/api/contas/{user_id}", response_model=bool)
 def delete_user(
     user_id: int,
     queries: AccountQueries = Depends(),

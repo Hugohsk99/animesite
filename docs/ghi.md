@@ -24,7 +24,7 @@ The sign up form will require the users first name, last name, email address, us
 <img src="./Signup.png" />
 
 ## Login
-When a returning user comes back to the website they will be able to log into their account to access members only access of a customized favorites and watchlist page.
+When a returning user comes back to the website they will be able to log into their account to access members only access of a customized favoritos and watchlist page.
 <img src="./Login.png" />
 
 ## Account Detail View 

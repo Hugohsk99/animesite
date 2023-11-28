@@ -1,12 +1,12 @@
 from fastapi.testclient import TestClient
 from main import app
-from queries.favorites import FavoriteOut, FavoriteRepository
+from queries.favoritos import FavoriteOut, FavoriteRepository
 from routers import auth
 
 client = TestClient(app)
 
 favorites_db = {
-    "favorites": [
+    "favoritos": [
         {
             "id": 7,
             "user_id": 0,
@@ -32,7 +32,7 @@ def set_favorites_db():
 class FakeFavoriteRespository:
     def get_all(self, user_id) -> list[FavoriteOut]:
         results = []
-        target_list = favorites_db["favorites"]
+        target_list = favorites_db["favoritos"]
         for item in target_list:
             if item["user_id"] == user_id:
                 results.append(item)
@@ -55,7 +55,7 @@ def test_get_all_favorites():
     app.dependency_overrides[
         auth.authenticator.get_current_account_data
     ] = FakeAuthenticator
-    response = client.get("/favorites/1")
+    response = client.get("/favoritos/1")
     assert response.status_code == 200
-    assert response.json()["favorites"][0] == favorites_db["favorites"][1]
+    assert response.json()["favoritos"][0] == favorites_db["favoritos"][1]
     app.dependency_overrides = {}

@@ -1,7 +1,7 @@
 from fastapi.testclient import TestClient
 from datetime import date
 from main import app
-from queries.favorites import (
+from queries.favoritos import (
     FavoriteOut,
     FavoriteIn,
     FavoriteRepository,
@@ -59,6 +59,6 @@ def test_create_favorite():
     app.dependency_overrides[
         auth.authenticator.get_current_account_data
     ] = FakeAuthenticator
-    response = client.post("/favorites", json=favorite_in.dict())
+    response = client.post("/favoritos", json=favorite_in.dict())
     assert response.status_code == 200
     assert response.json() == expected_favorite.dict()

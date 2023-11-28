@@ -72,7 +72,7 @@
 - Response shape:
   ```json
   {
-    "accounts": [
+    "contas": [
       {
         "first_name": string,
         "last_name": string,
@@ -99,7 +99,7 @@
 - Response shape (JSON):
   ```json
   {
-    "accounts": [
+    "contas": [
       {
         "first_name": string,
         "last_name": string,
@@ -128,7 +128,7 @@
 
 ## List Favorites
 
-- Endpoint path: /favorites
+- Endpoint path: /favoritos
 - Endpoint method: GET
 - Query parameters:
 
@@ -138,13 +138,13 @@
 
   - Authorization: Bearer token
 
-- Response: List of favorites and favorite's information
+- Response: List of favoritos and favorite's information
 
 - Response shape (JSON):
 
   ```
   {
-  "favorites":[
+  "favoritos":[
       {
           "user_id": string,
           "name": string,
@@ -158,7 +158,7 @@
 
 ## Create a new favorite
 
-- Endpoint path: /favorites
+- Endpoint path: /favoritos
 - Endpoint method: POST
 
 - Headers:
@@ -177,7 +177,7 @@
 
   ```
   {
-  "favorites":[
+  "favoritos":[
       {
           "user_id": string,
           "name": string,

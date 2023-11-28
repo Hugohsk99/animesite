@@ -70,7 +70,7 @@ function Nav() {
                   <li className="nav-item">
                     <Link
                       className="nav-link dropdown-item"
-                      to="/favorites/"
+                      to="/favoritos/"
                       id="dropdown"
                     >
                       Mostrar Favoritos
@@ -79,7 +79,7 @@ function Nav() {
                   <li className="nav-item">
                     <NavLink
                       className="nav-link dropdown-item"
-                      to="favorites/new"
+                      to="favoritos/new"
                       id="dropdown"
                     >
                       Adicionar Favorito

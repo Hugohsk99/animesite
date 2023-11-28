@@ -31,7 +31,7 @@ export default function Favorites() {
 
   useEffect(() => {
     async function getFavorite() {
-      const favoritesURL = `${process.env.REACT_APP_FAVORITES_API_HOST}/favorites/${decodedUser.id}`;
+      const favoritesURL = `${process.env.REACT_APP_FAVORITES_API_HOST}/favoritos/${decodedUser.id}`;
       const fetchConfig = {
         method: "GET",
         headers: {
@@ -43,8 +43,8 @@ export default function Favorites() {
       const response = await fetch(favoritesURL, fetchConfig);
       if (response.ok) {
         const data = await response.json();
-        console.log(data.favorites)
-        setAnime(data.favorites);
+        console.log(data.favoritos)
+        setAnime(data.favoritos);
       }
     }
     if (decodedUser) {
@@ -53,7 +53,7 @@ export default function Favorites() {
   }, [token, decodedUser, submitted]);
 
   const removeFavorite = async (favorite_id) => {
-    const removeURL = `${process.env.REACT_APP_FAVORITES_API_HOST}/favorites/${decodedUser.id}/${favorite_id}`;
+    const removeURL = `${process.env.REACT_APP_FAVORITES_API_HOST}/favoritos/${decodedUser.id}/${favorite_id}`;
     const fetchConfig = {
       method: "delete",
       headers: {
@@ -70,7 +70,7 @@ export default function Favorites() {
 
   return (
     <>
-      <h1>Anime in your favorites</h1>
+      <h1>Anime in your favoritos</h1>
       <table className="table table-dark table-striped">
         <thead>
           <tr>

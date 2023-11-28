@@ -18,7 +18,7 @@ const SignUpForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const data = { first_name, last_name, username, password, email, submitted };
-    const signupUrl = `${process.env.REACT_APP_ACCOUNTS_API_HOST}/api/accounts`;
+    const signupUrl = `${process.env.REACT_APP_ACCOUNTS_API_HOST}/api/contas`;
     const fetchConfig = {
       method: "POST",
       body: JSON.stringify(data),

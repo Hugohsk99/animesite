@@ -1,10 +1,10 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 import os
-from routers import accounts, auth
+from routers import contas, auth
 
 app = FastAPI()
-app.include_router(accounts.router)
+app.include_router(contas.router)
 app.include_router(auth.authenticator.router)
 
 origins = [
@@ -20,4 +20,4 @@ app.add_middleware(
 )
 
 
-app.include_router(accounts.router)
+app.include_router(contas.router)

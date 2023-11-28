@@ -40,7 +40,7 @@ export default function FavoriteForm() {
       date: date,
       img_url: imgUrl,
     };
-    const favoriteUrl = `${process.env.REACT_APP_FAVORITES_API_HOST}/favorites`;
+    const favoriteUrl = `${process.env.REACT_APP_FAVORITES_API_HOST}/favoritos`;
     const fetchConfig = {
       method: "post",
       body: JSON.stringify(newFavorite),

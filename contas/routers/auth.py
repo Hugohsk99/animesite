@@ -1,24 +1,24 @@
 import os
 from fastapi import Depends
 from jwtdown_fastapi.authentication import Authenticator
-from queries.accounts import AccountQueries, AccountOut, AccountOutWithPassword
+from queries.contas import AccountQueries, AccountOut, AccountOutWithPassword
 
 
 class MyAuthenticator(Authenticator):
     async def get_account_data(
         self,
         username: str,
-        accounts: AccountQueries,
+        contas: AccountQueries,
     ):
 
-        return accounts.get_one(username)
+        return contas.get_one(username)
 
     def get_account_getter(
         self,
-        accounts: AccountQueries = Depends(),
+        contas: AccountQueries = Depends(),
     ):
 
-        return accounts
+        return contas
 
     def get_hashed_password(self, account: AccountOutWithPassword):
 

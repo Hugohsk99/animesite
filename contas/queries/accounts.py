@@ -112,7 +112,7 @@ class AccountQueries:
                     ]
         except Exception as e:
             print(e)
-            return {"message": "Could not get all accounts"}
+            return {"message": "Could not get all contas"}
 
     def update(
         self, user_id: int, account: AccountIn, hashed_password: str

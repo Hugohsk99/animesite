@@ -1,6 +1,6 @@
 from fastapi.testclient import TestClient
 from main import app
-from queries.accounts import AccountQueries
+from queries.contas import AccountQueries
 from routers import auth
 
 
@@ -30,7 +30,7 @@ def test_get_all_accounts():
     app.dependency_overrides[
         auth.authenticator.try_get_current_account_data
     ] = set_current_db
-    response = client.get("/api/accounts")
+    response = client.get("/api/contas")
     assert response.status_code == 200
     assert response.json() == [userDb]
     app.dependency_overrides = {}
