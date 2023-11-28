@@ -23,11 +23,11 @@ watchOptions: { aggregateTimeout: 200, poll: 1000, ignored: '**/node_modules', }
       writeFileSync(configPath, newConfig, 'utf8');
       console.log('content written to', configPath);
     } else {
-      throw new Error(`Failed to inject watchOptions`);
+      throw new Error(`Falha ao tentar assistir`);
     }
   } else {
-    console.log('already contains watch options.');
+    console.log('Já com configuração de assistir.');
   }
 } else {
-  console.log('Ignoring setup because not development on Windows');
+  console.log('Erro');
 }

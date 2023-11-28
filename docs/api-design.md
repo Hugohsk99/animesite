@@ -1,272 +1,284 @@
-### Log in
+## Log in
 
-- Endpoint path: /token
-- Endpoint method: POST
+    Caminho do endpoint: /token
 
-- Request shape (form):
+    Método do endpoint: POST
 
-  - username: string
-  - password: string
-  - password confirmation: string
+    Formato da solicitação (formulário):
+        username: string
+        password: string
+        confirmação de senha: string
 
-- Response: Account information and a token
-- Response shape (JSON):
-  ```json
-  {
-    "account": {
-      «key»: type»,
-    },
-    "token": string
-  }
-  ```
+    Resposta: Informações da conta e um token
 
-### Log out
+    Formato da resposta (JSON):
 
-- Endpoint path: /token
-- Endpoint method: DELETE
+    json
 
-- Headers:
+    {
+      "account": {
+        «key»: «type»,
+      },
+      "token": string
+    }
 
-  - Authorization: Bearer token
+## Log out
 
-- Response: Always true
-- Response shape (JSON):
-  ```json
-  true
-  ```
+    Caminho do endpoint: /token
 
-### Sign Up
+    Método do endpoint: DELETE
 
-- Endpoint path: /token
-- Endpoint method: POST
+    Headers:
+        Authorization: Bearer token
 
-- Request shape (form):
+    Resposta: Sempre verdadeiro
 
-  - first name: string
-  - last name: string
-  - email: string
-  - username: string
-  - password: string
-  - password confirmation: string
+    Formato da resposta (JSON):
 
-- Response: Account information and a token
-- Response shape (JSON):
-  ```json
-  {
-    "account": {
-      «key»: type»,
-    },
-    "token": string
-  }
-  ```
+    json
 
-### Account Details View
+    true
 
-- Endpoint path: /account
-- Endpoint method: GET
+## Sign Up
 
-- Headers:
-- Authorization: Bearer token
+    Caminho do endpoint: /token
 
-- Response: Account details
-- Response shape:
-  ```json
-  {
-    "contas": [
-      {
-        "first_name": string,
-        "last_name": string,
-        "email": string,
-        "username": string,
-      }
-    ]
-  }
-  ```
+    Método do endpoint: POST
 
-### Account Update
+    Formato da solicitação (formulário):
+        primeiro nome: string
+        sobrenome: string
+        email: string
+        username: string
+        password: string
+        confirmação de senha: string
 
-- Endpoint path: /account
-- Endpoint method: PUT
+    Resposta: Informações da conta e um token
 
-- Request shape (form):
+    Formato da resposta (JSON):
 
-  - first name: string
-  - last name: string
-  - email: string
-  - username: string
+    json
 
-- Response: Account information and a token
-- Response shape (JSON):
-  ```json
-  {
-    "contas": [
-      {
-        "first_name": string,
-        "last_name": string,
-        "email": string,
-        "username": string,
-      }
-    ]
-  }
-  ```
+    {
+      "account": {
+        «key»: «type»,
+      },
+      "token": string
+    }
 
-### Password Update
+## Visualização de Detalhes da Conta
 
-- Endpoint path: /password
-- Endpoint method: PUT
+    Caminho do endpoint: /account
 
-- Request Shape (form):
+    Método do endpoint: GET
 
-  - password: string
-  - password confirmation: string
+    Headers:
+        Authorization: Bearer token
 
-- Response: Always true
-- Response shape (JSON):
-  ```json
-  true
-  ```
+    Resposta: Detalhes da conta
 
-## List Favorites
+    Formato da resposta:
 
-- Endpoint path: /favoritos
-- Endpoint method: GET
-- Query parameters:
+    json
 
-  - «name»: «purpose»
+    {
+      "contas": [
+        {
+          "first_name": string,
+          "last_name": string,
+          "email": string,
+          "username": string,
+        }
+      ]
+    }
 
-- Headers:
+## Atualização de Conta
 
-  - Authorization: Bearer token
+    Caminho do endpoint: /account
 
-- Response: List of favoritos and favorite's information
+    Método do endpoint: PUT
 
-- Response shape (JSON):
+    Formato da solicitação (formulário):
+        primeiro nome: string
+        sobrenome: string
+        email: string
+        username: string
 
-  ```
-  {
-  "favoritos":[
-      {
+ ##   Resposta: Informações da conta e um token
+
+    Formato da resposta (JSON):
+
+    json
+
+    {
+      "contas": [
+        {
+          "first_name": string,
+          "last_name": string,
+          "email": string,
+          "username": string,
+        }
+      ]
+    }
+
+## Atualização de Senha
+
+    Caminho do endpoint: /password
+
+    Método do endpoint: PUT
+
+    Formato da solicitação (formulário):
+        senha: string
+        confirmação de senha: string
+
+    Resposta: Sempre verdadeiro
+
+    Formato da resposta (JSON):
+
+    json
+
+    true
+
+## Lista de Favoritos
+
+    Caminho do endpoint: /favoritos
+
+    Método do endpoint: GET
+
+    Parâmetros de consulta:
+        «nome»: «finalidade»
+
+    Headers:
+        Authorization: Bearer token
+
+    Resposta: Lista de favoritos e informações do favorito
+
+    Formato da resposta (JSON):
+
+    json
+
+    {
+      "favoritos": [
+        {
           "user_id": string,
           "name": string,
           "date": date,
           "image_url": string,
-          }
+        }
       ]
-  }
+    }
 
-  ```
+## Criar um Novo Favorito
 
-## Create a new favorite
+    Caminho do endpoint: /favoritos
 
-- Endpoint path: /favoritos
-- Endpoint method: POST
+    Método do endpoint: POST
 
-- Headers:
+    Headers:
+        Authorization: Bearer token
 
-  - Authorization: Bearer token
+    Formato da solicitação (JSON):
+        nome
+        data
 
-- Request shape (JSON):
+  ##   Resposta: Coletando informações do anime
 
-  ```
-  - name
-  - date
-  ```
+    Formato da resposta (JSON):
 
-- Response: Gathering anime info
-- Response shape (JSON):
+    json
 
-  ```
-  {
-  "favoritos":[
-      {
+    {
+      "favoritos": [
+        {
           "user_id": string,
           "name": string,
           "date": date,
           "image_url": string,
-          }
+        }
       ]
-  }
-
-  ```
+    }
 
 ## Watchlist
 
 '''
-TBD: Might change to mal_id
+TBD: Pode mudar para mal_id
 '''
+Visualização da Lista de Watchlist
 
-### Watchlist List View
+    Caminho do endpoint: /watchlists
 
-- Endpoint path: /watchlists
-- Endpoint method: GET
-- Query parameters:
-  - «name»: «purpose»
-- Headers:
+    Método do endpoint: GET
 
-  - Authorization: Bearer token
+    Parâmetros de consulta:
+        «nome»: «finalidade»
 
-- Request shape (form):
+    Headers:
+        Authorization: Bearer token
 
-  - username: string
+    Formato da solicitação (formulário):
+        username: string
 
-- Response: A list of Watchlist
-- Response shape(JSON):
+    Resposta: Uma lista de Watchlist
 
-  ```json
-  {
-    "watchlists": [
-      {
-        "anime_title": string,
-        "anime_intro": string,
-        "anime_picture_url": string,
+    Formato da resposta (JSON):
 
-      }
-    ]
-  }
-  ```
+    json
 
-### Watchlist Create
+    {
+      "watchlists": [
+        {
+          "anime_title": string,
+          "anime_intro": string,
+          "anime_picture_url": string,
+        }
+      ]
+    }
 
-- Endpoint path: /watchlists
-- Endpoint method: POST
+## Criar Watchlist
 
-- Headers:
+    Caminho do endpoint: /watchlists
 
-  - Authorization: Bearer token
+    Método do endpoint: POST
 
-- Request shape (form):
+    Headers:
+        Authorization: Bearer token
 
-  ```json
-  {
-    "watchlists": [
-      {
-        "anime_title": string,
-      }
-    ]
-  }
-  ```
+    Formato da solicitação (formulário):
 
-- Response: An indication of success or failure
-- Response shape(JSON):
-  ```json
-  {
-    true
-  }
-  ```
+    json
 
-### Watchlist Update
+{
+  "watchlists": [
+    {
+      "anime_title": string,
+    }
+  ]
+}
 
-- Endpoint path: /watchlists
-- Endpoint method: PUT
+Resposta: Indicação de sucesso ou fracasso
 
-- Headers:
+Formato da resposta (JSON):
 
-  - Authorization: Bearer token
+json
 
-- Request shape (form):
+    {
+      true
+    }
 
-  - username: string
-    ```json
+Atualizar Watchlist
+
+    Caminho do endpoint: /watchlists
+
+    Método do endpoint: PUT
+
+    Headers:
+        Authorization: Bearer token
+
+    Formato da solicitação (formulário):
+        username: string
+
+        json
+
     {
       "watchlists": [
         {
@@ -275,34 +287,36 @@ TBD: Might change to mal_id
         }
       ]
     }
-    ```
 
-- Response: An indication of success or failure
-- Response shape(JSON):
-  ```json
-  {
-    "watchlists": [
-      {
-        "anime_title": string,
-        "status_completed": boolean,
-      }
-    ]
-  }
-  ```
+Resposta: Indicação de sucesso ou fracasso
 
-### Watchlists DELETE
+Formato da resposta (JSON):
 
-- Endpoint path: /watchlists
-- Endpoint method: DELETE
+json
 
-- Headers:
+    {
+      "watchlists": [
+        {
+          "anime_title": string,
+          "status_completed": boolean,
+        }
+      ]
+    }
 
-  - Authorization: Bearer token
+DELETE Watchlists
 
-- Request shape (form):
+    Caminho do endpoint: /watchlists
 
-  - username: string
-    ```json
+    Método do endpoint: DELETE
+
+    Headers:
+        Authorization: Bearer token
+
+    Formato da solicitação (formulário):
+        username: string
+
+        json
+
     {
       "watchlists": [
         {
@@ -310,67 +324,71 @@ TBD: Might change to mal_id
         }
       ]
     }
-    ```
 
-- Response: An indication of success or failure
-- Response shape:
-  ```json
-  {
-    true
-  }
-  ```
+Resposta: Indicação de sucesso ou fracasso
 
-## Anime Details List
+Formato da resposta:
 
-- Endpoint path: /anime
-- Endpoint method: GET
+json
 
-- Headers:
-- Authorization: Bearer token
+    {
+      true
+    }
 
-- Response: A list of Anime Details
-- Response shape (JSON):
+Lista de Detalhes de Anime
 
-  ```
-  {
-    “anime”: [
-      {
-        "title": string,
-        ”synopsis”: string,
-        "image_url": string html,
-        “rating”: integer,
-        “streaming_platform”: string,
-        “status”: boolean
-      }
-    ]
-  }
-  ```
+    Caminho do endpoint: /anime
 
-## Search List
+    Método do endpoint: GET
 
-- Endpoint path: /search
-- Endpoint method: GET
-- Query parameters:
+    Headers:
+        Authorization: Bearer token
 
-- Headers:
+    Resposta: Uma lista de Detalhes de Anime
 
-  - Authorization: Bearer token
+    Formato da resposta (JSON):
 
-- Response: A list of Searches
-- Response shape (JSON):
+    json
 
-  ```
-  {
-    “Searches”: [
-      {
-        “title”: string,
-        "text": string,
-        “rating”: integer,
-        “length”: integer,
-        “released_year”: string,
-        “status”: boolean
-      }
-    ]
-  }
-  ```
-  
+    {
+      “anime”: [
+        {
+          "title": string,
+          ”synopsis”: string,
+          "image_url": string html,
+          “rating”: integer,
+          “streaming_platform”: string,
+          “status”: boolean
+        }
+      ]
+    }
+
+Lista de Pesquisa
+
+    Caminho do endpoint: /search
+
+    Método do endpoint: GET
+
+    Parâmetros de consulta:
+
+    Headers:
+        Authorization: Bearer token
+
+    Resposta: Uma lista de Pesquisas
+
+    Formato da resposta (JSON):
+
+    json
+
+{
+  “Searches”: [
+    {
+      “title”: string,
+      "text": string,
+      “rating”: integer,
+      “length”: integer,
+      “released_year”: string,
+      “status”: boolean
+    }
+  ]
+}

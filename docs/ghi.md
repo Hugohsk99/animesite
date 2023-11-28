@@ -1,36 +1,36 @@
-# Customer Graphical Human Interface 
+# Interface Gráfica do Usuário para Clientes
 
-## Dropdown Menu
+## Menu Dropdown
 <img src="./Dropdown.png" />
 
-## Main Page
-When visitors visit our page they will see the main page with a carousel of popular anime! 
+## Página Principal
+Quando os visitantes acessam nossa página, eles verão a página principal com um carrossel de animes populares!
 <img src="./Mainpage.png" />
 
 ## Top 100
-Once they are signed in they will be able to scroll through the most highly ranked anime from other users.
+Uma vez que estejam cadastrados, poderão navegar pelos animes mais bem classificados por outros usuários.
 <img src="./Top100.png" />
 
-## Search List
-If someone knwos what they want to view or if they want to adventure the website they will be able to use the search function. 
+## Lista de Pesquisa
+Se alguém souber o que deseja assistir ou se quiser explorar o site, poderá usar a função de pesquisa.
 <img src="./SearchList.png" />
 
-## Anime Detail View 
-When a visitor clicks on an anime it will show details to help them understand what the anime will be about and possibly spark their interest in that anime. 
+## Visualização de Detalhes do Anime
+Quando um visitante clica em um anime, serão exibidos detalhes para ajudá-lo a entender do que se trata o anime e possivelmente despertar seu interesse nesse anime.
 <img src="./AnimeDetailView.png" />
 
-## Sign Up Form
-The sign up form will require the users first name, last name, email address, username, and password. 
+## Formulário de Inscrição
+O formulário de inscrição exigirá o primeiro nome, sobrenome, endereço de e-mail, nome de usuário e senha do usuário.
 <img src="./Signup.png" />
 
 ## Login
-When a returning user comes back to the website they will be able to log into their account to access members only access of a customized favoritos and watchlist page.
+Quando um usuário retorna ao site, ele poderá fazer login em sua conta para acessar áreas exclusivas para membros, como uma página personalizada de favoritos e lista de assistência.
 <img src="./Login.png" />
 
-## Account Detail View 
-The user can see what their account information by clicking the view account button. This will present their current information. 
+## Visualização de Detalhes da Conta
+O usuário pode ver as informações de sua conta clicando no botão de visualização da conta. Isso apresentará suas informações atuais.
 <img src="./AccountDetailView.png" />
 
-## Profile Edit Form
-If for some reason the user wants to change their information, they can proceed to the profile edit form to change their first name, last name, username, password, or email address. 
+## Formulário de Edição de Perfil
+Se por algum motivo o usuário quiser alterar suas informações, ele pode proceder ao formulário de edição de perfil para mudar seu nome, sobrenome, nome de usuário, senha ou endereço de e-mail.
 <img src="./ProfileEdit.png" />

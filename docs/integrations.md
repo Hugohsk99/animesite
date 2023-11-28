@@ -1,4 +1,4 @@
-# Integrations
+# Integrações
 
-The application will need to get all anime data from third-party sources:
-- Anime data from jikan api, based off of MyanimeList api.
+A aplicação precisará obter todos os dados de anime de fontes terceiras:
+- Dados de anime da API Jikan, baseada na API MyAnimeList.

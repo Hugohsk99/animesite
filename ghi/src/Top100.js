@@ -88,7 +88,7 @@ function Top100() {
               <div className="col-2">
                 <div className="item-showtype" align="center">
                   Show Type: {item.type}
-                  <div className="item-episodes">{item.episodes} Episodes</div>
+                  <div className="item-episodes">{item.episodes} Episodios</div>
                 </div>
               </div>
               <div className="col-1">

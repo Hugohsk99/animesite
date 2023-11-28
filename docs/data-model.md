@@ -1,47 +1,47 @@
-# Data models
+# Modelos de Dados
 
-## Favorites microservice
+## Microserviço de Favoritos
 
 ---
 
-### Favorites
+### Favoritos
 
-| name             | type   | unique | optional |
-| ---------------- | ------ | ------ | -------- |
-| user_id          | string | yes    | no       |
-| anime_title      | string | no     | no       |
-| data             |  date  | no     | no       |
-| img_url          | string | no     | no       |
+| nome          | tipo   | único | opcional |
+| ------------- | ------ | ----- | -------- |
+| user_id       | string | sim   | não      |
+| anime_title   | string | não   | não      |
+| data          | date   | não   | não      |
+| img_url       | string | não   | não      |
 
-The favorite service contains data about users' favorite anime series list and user can create a new favorite for their favorite anime.
+O serviço de favoritos contém dados sobre a lista de séries de anime favoritas dos usuários e permite que eles criem um novo favorito para seu anime favorito.
 
-## Watchlist microservice
+## Microserviço de Watchlist
 
 ---
 
 ### Watchlist
 
-| name             | type   | unique | optional |
-| ---------------- | ------ | ------ | -------- |
-| user_id          | string | yes    | no       |
-| anime_title      | string | no     | no       |
-| data             |  date  | no     | no       |
-| img_url          | string | no     | no       |
+| nome          | tipo   | único | opcional |
+| ------------- | ------ | ----- | -------- |
+| user_id       | string | sim   | não      |
+| anime_title   | string | não   | não      |
+| data          | date   | não   | não      |
+| img_url       | string | não   | não      |
 
-The watchlist service contains data about users' watchlist, series that can be saved that allows users to watch a series later. Users can also add a series into their watchlist as well.
+O serviço de watchlist contém dados sobre a watchlist dos usuários, séries que podem ser salvas e que permitem aos usuários assistir a uma série mais tarde. Os usuários também podem adicionar uma série à sua watchlist.
 
-## Account microservice
+## Microserviço de Conta
 
 ---
 
-### Account
+### Conta
 
-| name             | type   | unique | optional |
-| ---------------- | ------ | ------ | -------- |
-| first_name       | string | no     | no       |
-| last_name        | string | no     | no       |
-| email            | string | yes    | no       |
-| username         | string | yes    | no       |
-| password         | string | no     | no       |
+| nome          | tipo   | único | opcional |
+| ------------- | ------ | ----- | -------- |
+| first_name    | string | não   | não      |
+| last_name     | string | não   | não      |
+| email         | string | sim   | não      |
+| username      | string | sim   | não      |
+| password      | string | não   | não      |
 
-The contas service allows users to sign-up, login and allow users to access their favoritos and watchlist data. 
+O serviço de contas permite que os usuários se cadastrem, façam login e acessem seus dados de favoritos e watchlist.
