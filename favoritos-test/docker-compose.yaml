@@ -1,0 +1,23 @@
+version: '4.2'
+services:
+  favoritosapi:
+    build: ./favoritosapi
+    ports:
+      - "3000:3000"
+    depends_on:
+      - postgres
+  favoritos:
+    build: ./favoritos
+    ports:
+      - "3001:3001"
+    depends_on:
+      - favoritosapi
+  postgres:
+    image: postgres
+    ports:
+      - "5458:5432"
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: mon-mot-de-passe
+      POSTGRES_DB: postgres
