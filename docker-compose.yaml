@@ -1,86 +1,74 @@
+# Define volumes para persistência de dados.
 volumes:
   postgres-data:
-    external: true
+    external: true  # Volume externo para dados do PostgreSQL.
   pg-admin:
-    external: true
+    external: true  # Volume externo para dados do pgAdmin.
 
+# Define os serviços a serem criados.
 services:
+  # Serviço para o pgAdmin - uma ferramenta de administração para PostgreSQL.
   pg-admin:
-    image: dpage/pgadmin4
+    image: dpage/pgadmin4  # Usa a imagem do pgAdmin4.
     volumes:
-      - pg-admin:/var/lib/pgadmin
+      - pg-admin:/var/lib/pgadmin  # Monta o volume pg-admin no diretório especificado.
     ports:
-      - 8082:80
+      - 8082:80  # Mapeia a porta 8082 do host para a porta 80 do container.
     environment:
-      PGADMIN_DEFAULT_EMAIL: anime@email.com
-      PGADMIN_DEFAULT_PASSWORD: anime@email.com
-      PGADMIN_DISABLE_POSTFIX: 1
+      PGADMIN_DEFAULT_EMAIL: anime@email.com  # Configura o e-mail padrão para login.
+      PGADMIN_DEFAULT_PASSWORD: anime@email.com  # Configura a senha padrão para login.
+      PGADMIN_DISABLE_POSTFIX: 1  # Desativa o Postfix, um servidor de e-mail.
 
+  # Serviço para o banco de dados PostgreSQL.
   postgres:
     build:
-      context: ./relational-data
-      dockerfile: ./Dockerfile.dev
+      context: ./relational-data  # Contexto de build, pasta com os dados relacionais.
+      dockerfile: ./Dockerfile.dev  # Dockerfile para usar durante o build.
     volumes:
-      - postgres-data:/var/lib/postgresql/data
+      - postgres-data:/var/lib/postgresql/data  # Monta o volume de dados do PostgreSQL.
     environment:
-      - POSTGRES_MULTIPLE_DATABASES=contas,favoritos,watchlists
-      - POSTGRES_USER=admin
-      - POSTGRES_PASSWORD=pass
+      - POSTGRES_MULTIPLE_DATABASES=contas,favoritos,watchlists  # Cria múltiplos bancos de dados.
+      - POSTGRES_USER=admin  # Define o usuário do PostgreSQL.
+      - POSTGRES_PASSWORD=pass  # Define a senha do PostgreSQL.
     ports:
-      - 15432:5432
+      - 15432:5432  # Mapeia a porta 15432 do host para a porta 5432 do container.
 
+  # Serviço para a aplicação 'contas'.
   contas:
     build:
-      context: ./contas
-      dockerfile: ./Dockerfile.dev
+      context: ./contas  # Contexto de build para a aplicação 'contas'.
+      dockerfile: ./Dockerfile.dev  # Dockerfile para a aplicação 'contas'.
     ports:
-      - "8000:8000"
+      - "8000:8000"  # Mapeia a porta 8000 do host para a porta 8000 do container.
     volumes:
-      - ./contas:/app
+      - ./contas:/app  # Monta o diretório 'contas' no container.
     environment:
-      DATABASE_URL: postgresql://contas:password@postgres
-      WAIT_HOSTS: postgres:5432
-      SIGNING_KEY: LjdTjfrjPYgUJHNDzM-dKQoBLIfC74fNnR_71DcJcgE
+      DATABASE_URL: postgresql://contas:password@postgres  # URL do banco de dados para 'contas'.
+      WAIT_HOSTS: postgres:5432  # Espera pelo serviço PostgreSQL na porta 5432.
+      SIGNING_KEY: LjdTjfrjPYgUJHNDzM-dKQoBLIfC74fNnR_71DcJcgE  # Chave de assinatura.
 
+  # Serviço para a aplicação 'favoritos'.
   favoritos:
-    build:
-      context: ./favoritos
-      dockerfile: ./Dockerfile.dev
-    ports:
-      - "8090:8000"
-    volumes:
-      - ./favoritos:/app
-    environment:
-      DATABASE_URL: postgresql://favoritos:password@postgres
-      WAIT_HOSTS: postgres:5432
-      SIGNING_KEY: LjdTjfrjPYgUJHNDzM-dKQoBLIfC74fNnR_71DcJcgE
+    # Configurações semelhantes ao serviço 'contas', adaptadas para 'favoritos'.
 
+  # Serviço para a aplicação 'watchlists'.
   watchlists:
-    build:
-      context: ./watchlists
-      dockerfile: ./Dockerfile.dev
-    ports:
-      - "8080:8000"
-    volumes:
-      - ./watchlists:/app
-    environment:
-      DATABASE_URL: postgresql://watchlists:password@postgres
-      WAIT_HOSTS: postgres:5432
-      SIGNING_KEY: LjdTjfrjPYgUJHNDzM-dKQoBLIfC74fNnR_71DcJcgE
+    # Configurações semelhantes ao serviço 'contas', adaptadas para 'watchlists'.
 
+  # Serviço para a interface gráfica do usuário (GUI).
   ghi:
-    image: node:lts-bullseye
-    command: /bin/bash run.sh
-    working_dir: /app
+    image: node:lts-bullseye  # Usa a imagem do Node.js LTS.
+    command: /bin/bash run.sh  # Comando para iniciar a aplicação.
+    working_dir: /app  # Diretório de trabalho no container.
     volumes:
-      - ./ghi:/app
+      - ./ghi:/app  # Monta o diretório 'ghi' no container.
     ports:
-      - "3000:3000"
+      - "3000:3000"  # Mapeia a porta 3000 do host para a porta 3000 do container.
     environment:
-      HOST_OS: Linux
-      NODE_ENV: production
-      HOST: "0.0.0.0"
-      PUBLIC_URL: http://localhost:3000
-      REACT_APP_ACCOUNTS_API_HOST: http://localhost:8000
-      REACT_APP_FAVORITES_API_HOST: http://localhost:8090
-      REACT_APP_WATCHLISTS_API_HOST: http://localhost:8080
+      HOST_OS: Linux  # Define o sistema operacional do host.
+      NODE_ENV: production  # Define o ambiente Node.js como produção.
+      HOST: "0.0.0.0"  # Define o host.
+      PUBLIC_URL: http://localhost:3000  # URL pública para a interface gráfica.
+      REACT_APP_ACCOUNTS_API_HOST: http://localhost:8000  # URL da API de contas.
+      REACT_APP_FAVORITES_API_HOST: http://localhost:8090  # URL da API de favoritos.
+      REACT_APP_WATCHLISTS_API_HOST: http://localhost:8080  # URL da API de watchlists.
