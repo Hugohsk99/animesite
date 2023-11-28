@@ -15,7 +15,7 @@ function Nav() {
       <nav className="navbar navbar-expand-lg">
         <div className="container-fluid">
           <NavLink className="navbar-brand" to="/">
-            Ani-Reactor
+            Nipo Land
           </NavLink>
           <button
             className="navbar-toggler"

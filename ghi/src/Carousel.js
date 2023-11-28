@@ -15,9 +15,9 @@ const MyCarousel = (props) => {
     {
       src: "https://cdn.myanimelist.net/images/anime/1286/99889.jpg",
       altText: "Card 1",
-      caption: "Content for card 1",
-      buttonText: "Button 1",
-      buttonLink: "https://www.example1.com",
+      caption: "Detalhes",
+      buttonText: "Veja mais",
+      buttonLink: "https://pt.wikipedia.org/wiki/Kimetsu_no_Yaiba",
       englishTitle: "Demon Slayer",
       japaneseTitle: "Kimtesu no Yaiba",
       synopsis:
@@ -26,8 +26,8 @@ const MyCarousel = (props) => {
     {
       src: "https://cdn.myanimelist.net/images/anime/1208/94745.jpg",
       altText: "Card 1",
-      caption: "Content for card 1",
-      buttonText: "Button 1",
+      caption: "Detalhes",
+      buttonText: "Veja mais",
       buttonLink: "https://www.example1.com",
       englishTitle: "Full Metal Alchemist: Brotherhood",
       japaneseTitle: "Hagane no Renkinjutsushi: Fullmetal Alchemist",
@@ -37,8 +37,8 @@ const MyCarousel = (props) => {
     {
       src: "https://cdn.myanimelist.net/images/anime/1337/99013.jpg",
       altText: "Card 1",
-      caption: "Content for card 1",
-      buttonText: "Button 1",
+      caption: "Detalhes",
+      buttonText: "Veja mais",
       buttonLink: "https://www.example1.com",
       englishTitle: "Hunter x Hunter",
       japaneseTitle: "HUNTER×HUNTER",
